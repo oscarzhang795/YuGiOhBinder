@@ -1,4 +1,4 @@
-package com.oscarz.yu_gi_ohbinder
+package com.oscarz.yu_gi_ohbinder.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

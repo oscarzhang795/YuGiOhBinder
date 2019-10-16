@@ -16,3 +16,4 @@
 ./idea/codeStyles/Project.xml
 ./idea/misc.xml
 ./idea/vcs.xml
+/apikey.properties
