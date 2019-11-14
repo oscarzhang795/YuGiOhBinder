@@ -6,6 +6,10 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -15,6 +19,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "PRIVATE_ID", apikeyProperties['PRIVATE_ID'])
+        buildConfigField("String", "PUBLIC_ID", apikeyProperties['PUBLIC_ID'])
     }
     buildTypes {
         release {
@@ -44,5 +51,7 @@ dependencies {
     // Dependency Injection Libraries
     kapt 'com.google.dagger:dagger-compiler:2.17'
     api 'com.google.dagger:dagger:2.24'
+
+    implementation 'com.android.volley:volley:1.1.1'
 
 }
