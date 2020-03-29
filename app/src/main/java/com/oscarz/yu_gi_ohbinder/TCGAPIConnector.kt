@@ -7,15 +7,14 @@ import com.android.volley.toolbox.Volley
 class TCGAPIConnector: WebService {
 
     val url = "https://api.tcgplayer.com/token"
-    val queue = Volley.newRequestQueue(BinderApplication.appContext)
-    fun getAuthToken() {
+    private val queue = Volley.newRequestQueue(BinderApplication.appContext)
+    override fun getAuthToken() {
         val request = object: StringRequest(
             Method.POST, url,
             Response.Listener {
 
             },
             Response.ErrorListener {
-
             }
         ) {
             override fun getParams(): MutableMap<String, String> {
